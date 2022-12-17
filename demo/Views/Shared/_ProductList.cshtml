@@ -1,0 +1,22 @@
+﻿@model List<demo.Models.Product>
+<style>
+    td, th {
+        text-align: center;
+        height: 300px;
+        width: 600px;
+
+    }
+</style>
+
+<table id="productList">
+    <tbody>
+        @foreach (var product in Model)
+        {
+                <tr>
+                    <td>@product.Title</td>
+                    <td>@product.Description</td>
+                    <td>@product.Price $</td>
+                </tr>
+        }
+    </tbody>
+</table>
