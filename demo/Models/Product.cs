@@ -1,7 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore.Query;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Query;
 
 namespace demo.Models
 {
+    [Route("")]
+    [ApiController]
     public class Product
     {
         public int Id { get; set; }
