@@ -59,9 +59,12 @@ footer {
     position: relative;
 
 }
+    footer ul {
+        padding: 3%;
+    }
 
 section {
-    padding: auto;
+    padding: 5%;
     font-family: Poppins, sans-serif;
     color: #696969;
     width: 100%;
@@ -71,11 +74,13 @@ section {
 }
 
 article {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    position: relative;
-    padding: auto;
+    padding: 5%;
+    font-family: Poppins, sans-serif;
+    color: #696969;
+    width: 100%;
     text-align: center; 
+    column-count: 4;
+   
 }
 
 section #D {
@@ -100,6 +105,14 @@ section #O {
     text-align: center;
     height: fit-content;
     
+}
+
+#button {
+
+    padding: auto;
+    position: relative;
+    text-align: center;
+
 }
 
 
