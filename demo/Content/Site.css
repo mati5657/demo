@@ -21,14 +21,14 @@ body {
     position: relative;
     cursor: pointer;
     display: flex;
-    margin: auto;
+    margin: auto;  
 }
 
-    #wrapper img {
-        width: 100%;
-        display: block;
-        position: relative;
-    }
+#wrapper img {
+    width: 100%;
+    display: block;
+    position: relative;
+}
 
 header {
     background-color: hsl(45, 57%, 89%);
@@ -40,9 +40,8 @@ header {
         padding: 15px 30px;
         font-family: Poppins, sans-serif;
         color: #696969;
-        text-align: center;
+        text-align: center;  
     }
-
         header a:hover {
             color: #C0C0C0;
         }
@@ -56,7 +55,9 @@ nav {
 
 footer {
     padding: auto;
-    text-align: center;
+    text-align: center;  
+    position: relative;
+
 }
 
 section {
@@ -64,8 +65,9 @@ section {
     font-family: Poppins, sans-serif;
     color: #696969;
     width: 100%;
-    display: inline-block;
-    text-align: center;
+    text-align: center; 
+    column-count: 3;
+   
 }
 
 article {
@@ -73,7 +75,7 @@ article {
     margin-bottom: 30px;
     position: relative;
     padding: auto;
-    text-align: center;
+    text-align: center; 
 }
 
 section #D {
@@ -81,7 +83,7 @@ section #D {
     border: #696969;
     text-align: center;
     height: fit-content;
-    float: left;
+
 }
 
 section #B {
@@ -89,7 +91,7 @@ section #B {
     border: #696969;
     text-align: center;
     height: fit-content;
-    float: none;
+    
 }
 
 section #O {
@@ -97,5 +99,15 @@ section #O {
     border: #696969;
     text-align: center;
     height: fit-content;
-    float: right;
+    
 }
+
+
+
+
+
+
+
+
+
+
