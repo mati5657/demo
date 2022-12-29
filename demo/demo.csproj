@@ -14,9 +14,6 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10" />
   </ItemGroup>
-<<<<<<< Updated upstream
-=======
-
   <ItemGroup>
     <None Remove="Prototype\" />
     <None Remove="Content\" />
@@ -27,6 +24,5 @@
     <Folder Include="Content\" />
     <Folder Include="Content\Photos\" />
   </ItemGroup>
->>>>>>> Stashed changes
 </Project>
 
