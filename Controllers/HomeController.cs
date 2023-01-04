@@ -9,6 +9,11 @@ namespace demo_v2.Controllers
             return View();
         }
 
+        public ActionResult Login()
+        {
+            return View();
+        }
+
         [Route("contact")]
         public ActionResult Contact()
         {
