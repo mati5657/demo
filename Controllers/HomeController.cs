@@ -1,41 +1,47 @@
-﻿using System.Web.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Pugcorn_v1.Models;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace demo_v2.Controllers
+namespace Pugcorn_v1.Controllers
 {
+    //[Authorize]
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public IActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Login()
+        public IActionResult Login()
         {
             return View();
         }
 
-        [Route("contact")]
-        public ActionResult Contact()
+        public IActionResult Returns()
         {
             return View();
         }
 
-        [Route("returns")]
-        public ActionResult Returns()
+        public IActionResult Shoppings()
         {
             return View();
         }
 
-        [Route("shoppings")]
-        public ActionResult Shoppings()
+        public IActionResult ShopRules()
         {
             return View();
         }
 
-        [Route("shop-rules")]
-        public ActionResult ShopRules()
+        public IActionResult Contact()
         {
             return View();
         }
+
     }
 }

@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>aspnet-Pugcorn_v1-58A84D72-7219-4957-8183-96014A9C3E36</UserSecretsId>
+    <RootNamespace>Pugcorn_v1</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\css\site.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\Kontakt.css" />
+    <None Include="wwwroot\css\site.css" />
+    <None Include="wwwroot\Photos\.DS_Store" />
+    <None Include="wwwroot\Photos\pugcorn-manuel-schmucker.jpg" />
+    <None Include="wwwroot\Photos\pugcorn.jpg" />
+    <None Include="wwwroot\css\Regulaminsklepu.css" />
+    <None Include="wwwroot\css\Wysylkaizwroty.css" />
+    <None Include="wwwroot\css\Zakupy.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.17" NoWarn="NU1605" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="5.0.17" NoWarn="NU1605" />
+    <PackageReference Include="Microsoft.Identity.Web" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Identity.Web.UI" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Content\" />
+  </ItemGroup>
+
+</Project>
