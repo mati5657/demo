@@ -10,6 +10,10 @@ namespace Pugcorn_v1
     {
         private readonly DbPugcornContext _context;
 
+        public ProductService()
+        {
+        }
+
         public ProductService(DbPugcornContext context)
         {
             _context = context;

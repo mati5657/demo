@@ -41,6 +41,8 @@ namespace Pugcorn_v1
             {
                 builder.UseSqlServer("Data Source=DESKTOP-70TA2IQ;Initial Catalog=PugcornDb;Integrated Security=True") ;
             });
+
+            services.AddScoped<ProductService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

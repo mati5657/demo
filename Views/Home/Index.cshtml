@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Pugcorn_v1
+<!DOCTYPE html>
 <html lang="pl-PL">
 
 <head>
@@ -30,13 +31,22 @@
         <img src="Photos/pugcorn-manuel-schmucker.jpg" alt="pugcorn-manuel-schmucker.jpg" style="width: 100%; height: 5%; object-fit: cover; object-position: 50%;" fetchpriority="high">
     </nav>
         <p style="text-align:center; font-size:48px;"> BESTSELLERY</p>
-    <article>
-            <img class="article" src="Photos/pugcorn.jpg" alt="logo">Produkt 1</img>
-            <img class="article" src="Photos/pugcorn.jpg" alt="logo">Produkt 2</img>
-            <img class="article" src="Photos/pugcorn.jpg" alt="logo">Produkt 3</img>
-            <img class="article" src="Photos/pugcorn.jpg" alt="logo">Produkt 4</img>
-        
-    </article>
+        <article>
+            @{
+                @inject ProductService productService;
+                var products = productService.FindAll();
+            }
+
+            <ul>
+                @foreach (var product in products)
+                {
+                    <li>@product.Name</li>
+                    <li>@product.Description</li>
+                    <li>@product.Price</li>
+                }
+            </ul>
+
+        </article>
 
     <div id="button">
         <button aria-disabled="false" data-testid="buttonElement" href="Zakupy.html"> Zobacz wszystkie</button>
