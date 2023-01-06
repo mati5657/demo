@@ -17,11 +17,6 @@ namespace Pugcorn_v1.Controllers
             return View();
         }
 
-        public IActionResult Login()
-        {
-            return View();
-        }
-
         [Authorize]
         public IActionResult Returns()
         {
@@ -51,6 +46,5 @@ namespace Pugcorn_v1.Controllers
         {
             return View();
         }
-
     }
 }

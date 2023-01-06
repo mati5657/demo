@@ -15,17 +15,22 @@
 
 </head>
 <body>
-    <div id="wrapper">
-        <p> <img class="left" src="~/Photos/pugcorn.jpg" alt="logo"></p>
-        <header>
-            <a class="header" href="/"> STRONA GŁÓWNA</a>
-            <a class="header" href="/Shopiings"> ZAKUPY</a>
-            <a class="header" href="/Contact">KONTAKT</a>
+    <header>
+        <a class="header" href="/"> STRONA GŁÓWNA</a>
+        <a class="header" href="/home/Shopings"> ZAKUPY</a>
+        <a class="header" href="/home/Contact">KONTAKT</a>
 
-            <a class="header" href=""> Zaloguj się</a>
-            <a class="header" href=""> Koszyk</a>
-        </header>
-    </div>
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <a class="header" href="/account/Login"> Zaloguj się</a>
+            <a class="header" href="/account/Register"> Zarejestruj się</a>
+        }
+        else
+        {
+            <a class="header" href="/account/Logout"> Wyloguj się</a>
+        }
+        <a class="header" href="/home/Cart"> Koszyk</a>
+    </header>
         
     <article>
             <p style="text-align:center; font-size:64px;"> Skontaktuj się z nami</p>   

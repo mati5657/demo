@@ -19,11 +19,19 @@
         <p> <img class="left" src="~/Photos/pugcorn.jpg" alt="logo"></p>
         <header>
             <a class="header" href="/"> STRONA GŁÓWNA</a>
-            <a class="header" href="/Shoppings"> ZAKUPY</a>
+            <a class="header" href="/Shopings"> ZAKUPY</a>
             <a class="header" href="/Contact">KONTAKT</a>
 
-            <a class="header" href="Zalogujsie.html"> Zaloguj się</a>
-            <a class="header" href="/Cart"> Koszyk</a>
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <a class="header" href="/account/Login"> Zaloguj się</a>
+                <a class="header" href="/account/Register"> Zarejestruj się</a>
+            }
+            else
+            {
+                <a class="header" href="/account/Logout"> Wyloguj się</a>
+            }
+            <a class="header" href="home/Cart"> Koszyk</a>
         </header>
     </div>
         
