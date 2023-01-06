@@ -13,6 +13,44 @@
     <title>
         PUGCORN
     </title>
+    <style>
+        article {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-form {
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+        }
+
+            .login-form span {
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            .login-form input[type="text"], .login-form input[type="password"] {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 20px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                background-color: #eee;
+            }
+
+            .login-form button {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                background-color: #eee;
+                cursor: pointer;
+            }
+    </style>
 </head>
 
 <body>
@@ -32,19 +70,23 @@
             {
                 <a class="header" href="/account/Logout"> Wyloguj się</a>
             }
-            <a class="header" href="home/Cart"> Koszyk</a>
+            <a class="header" href="/home/Cart"> Koszyk</a>
         </header>
     </div>
-    <article>
-        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
-        {
-            @Html.ValidationSummary();
-            <span>Login: </span> @Html.TextBoxFor(x => x.Username)
-            <br>
-            <span>Password: </span> @Html.PasswordFor(x => x.Password)
-            <br>
-            <button type="submit">Submit</button>
-            <br>
-        }
-    </article>
+    <div>
+        <article>
+            <div class="login-form">
+                @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                {
+                    @Html.ValidationSummary();
+                    <span>Login: </span> @Html.TextBoxFor(x => x.Username)
+                    <br>
+                    <span>Password: </span> @Html.PasswordFor(x => x.Password)
+                    <br>
+                    <button type="submit">Submit</button>
+                    <br>
+                }
+            </div>
+        </article>
+    </div>
 </body>
