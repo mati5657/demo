@@ -79,10 +79,16 @@ article {
     color: #696969;
     width: 100%;
     text-align: center;
-    column-count: 4;
+    column-count:auto;
+    column-fill:auto;
+}
+
+#product {
+    display:inline-block;
 }
 
 section #D {
+    list-style: none;
     box-sizing: border-box;
     border: #696969;
     text-align: center;
@@ -90,6 +96,7 @@ section #D {
 }
 
 section #B {
+    list-style: none;
     box-sizing: border-box;
     border: #696969;
     text-align: center;
@@ -97,6 +104,7 @@ section #B {
 }
 
 section #O {
+    list-style: none;
     box-sizing: border-box;
     border: #696969;
     text-align: center;

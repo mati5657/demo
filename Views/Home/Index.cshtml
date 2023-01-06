@@ -15,9 +15,10 @@
     </title>
     <style>
         .product-list {
-            display: flex;
             flex-direction: column;
             align-items: center;
+            display: flex;
+            margin:0px 30px;
         }
 
         .product {
@@ -26,6 +27,7 @@
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            display:inline-block;
         }
 
         .product-image {
@@ -51,6 +53,11 @@
             color: #f00;
             margin: 10px 0;
         }
+
+        article {
+            box-sizing: border-box;
+            height:1200px;
+        }
     </style>
 </head>
 <body>
@@ -71,7 +78,7 @@
         </header>
     </div>
     <nav>
-        <img src="Photos/pugcorn-manuel-schmucker.jpg" alt="pugcorn-manuel-schmucker.jpg" style="width: 100%; height: 5%; object-fit: cover; object-position: 50%;" fetchpriority="high">
+        <img src="Photos/pugcorn-manuel-schmucker.jpg" alt="pugcorn-manuel-schmucker.jpg" style="width: 100%; height: 1600px; object-fit: cover; object-position: 50%;" fetchpriority="high">
     </nav>
         <p style="text-align:center; font-size:48px;"> BESTSELLERY</p>
         <article>
@@ -93,7 +100,7 @@
         </article>
 
     <div id="button">
-        <button aria-disabled="false" data-testid="buttonElement" href="/home/Shoppings"> Zobacz wszystkie</button>
+        <input type="button" onclick="window.location.href='/home/Shoppings';" value="Zobacz wszystkie" />
     </div>
 
 <section>

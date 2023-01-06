@@ -13,6 +13,15 @@
         PUGCORN
     </title>
 
+    <style>
+        #contact-input {
+            margin-bottom: 10px;
+            height: 50px;
+            width: 500px;
+            background-color: white;
+        }
+    </style>
+
 </head>
 <body>
     <div id="wrapper">
@@ -36,28 +45,30 @@
     </div>
         <p style="text-align:center; font-size:64px;"> Skontaktuj się z nami</p>
     <article>
-       <ul><li><input type="name" name="imieinazwisko" value="" placeholder="Imię i nazwisko" required="" aria-required="true" pattern="" maxlength="250" aria-label="Imię i nazwisko"></li>
-        <li><input type="phone" name="telefon" value="" placeholder="Numer telefonu" required="" aria-required="true" pattern="" maxlength="250" aria-label="Numer telefonu"></li>
-        <li><input type="email" name="email" value="" placeholder="Email" required="" aria-required="true" pattern="" maxlength="250" aria-label="Email"></li>
-        <input type="message" name="wiadomos" value="" placeholder="Wpisz swoją wiadomość tutaj" required="" aria-required="true" pattern="" maxlength="250" aria-label="Wpisz swoją wiadomość tutaj">
-        <li><button aria-disabled="false" data-testid="buttonElement">Wyślij</button></li></ul>
+       <ul><li><input type="name" id="contact-input" name="imieinazwisko" value="" placeholder="Imię i nazwisko" required="" aria-required="true" pattern="" maxlength="250" aria-label="Imię i nazwisko"></li>
+        <li><input type="phone" id="contact-input" name="telefon" value="" placeholder="Numer telefonu" required="" aria-required="true" pattern="" maxlength="250" aria-label="Numer telefonu"></li>
+        <li><input type="email"id="contact-input" name="email" value="" placeholder="Email" required="" aria-required="true" pattern="" maxlength="250" aria-label="Email"></li>
+        <input type="message"id="contact-input" name="wiadomos" value="" placeholder="Wpisz swoją wiadomość tutaj" required="" aria-required="true" pattern="" maxlength="250" aria-label="Wpisz swoją wiadomość tutaj">
+        <li><button id="contact-button" aria-disabled="false" data-testid="buttonElement">Wyślij</button></li></ul>
         
     </article>
 
 <section>
-        <div id="D">
-            <li> <a data-testid="linkElement-0" href="/" target="_self" tabindex="0">STRONA GŁÓWNA</a></li>
-            <li><a data-testid="linkElement-1" href="/home/Shoppings" target="_self" tabindex="0">ZAKUPY</a></li>
-            <li><a data-testid="linkElement-2" href="/home/Contact" target="_self" tabindex="0">KONTAKT</a></li>
-        </div>
+    <div id="D">
+        <li> <a data-testid="linkElement-0" href="/" target="_self" tabindex="0">STRONA GŁÓWNA</a></li>
+        <li><a data-testid="linkElement-1" href="/home/Shoppings" target="_self" tabindex="0">ZAKUPY</a></li>
+        <li><a data-testid="linkElement-2" href="/home/Contact" target="_self" tabindex="0">KONTAKT</a></li>
+        <p> </p>
+    </div>
         
         <div id="B">
-            <li><a class="box2" href="FAQ.html" target="_self">FAQ</a></li>
-            <li><a class="box2" href="/home/Returns" target="_self">Wysyłka i zwroty</a></li>
-            <li> <a class="box2" href="/home/ShopRules" target="_self">Regulamin sklepu</a></li>
+                <li><a class="box2" href="/home/Returns" target="_self">Wysyłka i zwroty</a></li>
+                <li><a class="box2" href="/home/ShopRules" target="_self">Regulamin sklepu</a></li>
+                <p> </p>
         </div>
 
         <div id="O">
+            <p> </p>
             <li><p>OBSŁUGA KLIENTA</p></li>
             <li><p>+48 800-000-000</p></li>
             <li><a data-auto-recognition="true" href="mailto:info@pugcorn.com">info@pugcorn.com</a></li>

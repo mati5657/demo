@@ -73,6 +73,7 @@ article {
     width: 100%;
     text-align: center; 
     column-count: 4;
+    box-sizing:border-box;
    
 }
 

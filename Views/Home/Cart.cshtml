@@ -6,50 +6,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="~/css/Zakupy.css">
+    <link rel="stylesheet" href="/css/site.css">
 
     <title>
         PUGCORN
     </title>
     <meta charset="UTF-8">
     <style>
-
-
-        header {
-            padding: 1% 10%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: rgb(243, 235, 211);
-            color: #fff;
-        }
-
-        .logo {
-            font-size: 18px;
-            text-decoration: none;
-            color: #fff;
-        }
-
-        .menu {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
-
-            .menu li {
-                margin: 0 10px;
-            }
-
-            .menu a {
-                text-decoration: none;
-                color: rgb(105, 138, 136);
-                font-size: 14px;
-            }
-
+           
         .cart {
             display: flex;
             justify-content: space-between;
+            padding: 10%;
         }
 
         .products {
@@ -112,24 +80,25 @@
     </style>
 </head>
 <body>
+    <div id="wrapper">
+        <p> <img class="left" src="~/Photos/pugcorn.jpg" alt="logo"></p>
+        <header>
+            <a class="header" href="/"> STRONA GŁÓWNA</a>
+            <a class="header" href="/home/Shoppings"> ZAKUPY</a>
+            <a class="header" href="/home/Contact">KONTAKT</a>
 
-    <header>
-        <a class="header" href="/"> STRONA GŁÓWNA</a>
-        <a class="header" href="/home/Shoppings"> ZAKUPY</a>
-        <a class="header" href="/home/Contact">KONTAKT</a>
-
-        @if (!User.Identity.IsAuthenticated)
-        {
-            <a class="header" href="/account/Login"> Zaloguj się</a>
-            <a class="header" href="/account/Register"> Zarejestruj się</a>
-        }
-        else
-        {
-            <a class="header" href="/account/Logout"> Wyloguj się</a>
-        }
-        <a class="header" href="/home/Cart"> Koszyk</a>
-    </header>
- 
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <a class="header" href="/account/Login"> Zaloguj się</a>
+                <a class="header" href="/account/Register"> Zarejestruj się</a>
+            }
+            else
+            {
+                <a class="header" href="/account/Logout"> Wyloguj się</a>
+            }
+            <a class="header" href="/home/Cart"> Koszyk</a>
+        </header>
+    </div>
     <div class="cart">
 
         <div class="products">
@@ -143,22 +112,22 @@
                 </tr>
 
                 <tr>
-                    <td><img src="Photos/pugcorn.jpg" alt="po" id="product">Pugcorn 100G</td>
+                    <td><img src="/Photos/pugcorn.jpg" alt="po" id="product">Pugcorn 100G</td>
                     <td>$10</td>
                     <td><button type="button" onclick="addToCart(this)">Dodaj do koszyka</button></td>
                 </tr>
                 <tr>
-                    <td><img src="Photos/pugcorn.jpg" alt="po" id="product">Pugcorn 250G</td>
+                    <td><img src="/Photos/pugcorn.jpg" alt="po" id="product">Pugcorn 250G</td>
                     <td>$20</td>
                     <td><button type="button" onclick="addToCart(this)">Dodaj do koszyka</button></td>
                 </tr>
                 <tr>
-                    <td><img src="Photos/pugcorn.jpg" alt="po" id="product">Pugcorn 500G</td>
+                    <td><img src="/Photos/pugcorn.jpg" alt="po" id="product">Pugcorn 500G</td>
                     <td>$40</td>
                     <td><button type="button" onclick="addToCart(this)">Dodaj do koszyka</button></td>
                 </tr>
                 <tr>
-                    <td><img src="Photos/pugcorn.jpg" alt="po" id="product">Pugcorn 1KG</td>
+                    <td><img src="/Photos/pugcorn.jpg" alt="po" id="product">Pugcorn 1KG</td>
                     <td>$80</td>
                     <td><button type="button" onclick="addToCart(this)">Dodaj do koszyka</button></td>
                 </tr>

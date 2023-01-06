@@ -10,6 +10,10 @@ body {
     background-color: hsl(45, 57%, 89%);
 }
 
+ul {
+    list-style: none;
+}
+
 #wrapper {
     width: 100%;
     height: 100%;
@@ -77,31 +81,24 @@ article {
 section #D {
     box-sizing: border-box;
     border: #696969;
-    text-align: center;
-    height: fit-content;
-
+    height: 100px;
 }
 
 section #B {
     box-sizing: border-box;
     border: #696969;
-    text-align: center;
-    height: fit-content;
-    
+    height: 100px;
 }
 
 section #O {
     box-sizing: border-box;
     border: #696969;
-    text-align: center;
-    height: fit-content;
-    
-}
+    height: 100px;
+    }
 
 #button {
 
     padding: auto;
     position: relative;
     text-align: center;
-
 }

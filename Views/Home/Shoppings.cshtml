@@ -1,3 +1,4 @@
+@using Pugcorn_v1
 <!DOCTYPE html>
 <html lang="pl-PL">
 
@@ -34,22 +35,32 @@
             <a class="header" href="/home/Cart"> Koszyk</a>
         </header>
     </div>
-        <p style="text-align:center; font-size:64px;"> NASZE PRODUKTY</p>
+    <p style="text-align:center; font-size:64px;"> NASZE PRODUKTY</p>
     <article>
-            <img class="article" src="../Content/Photos/pugcorn.jpg" alt="logo">Produkt 1</img>
-            <img class="article" src="../Content/Photos/pugcorn.jpg" alt="logo">Produkt 2</img>
-            <img class="article" src="../Content/Photos/pugcorn.jpg" alt="logo">Produkt 3</img>
-            <img class="article" src="../Content/Photos/pugcorn.jpg" alt="logo">Produkt 4</img>
-        
+        <div class="product-list">
+            @{
+                @inject ProductService productService;
+                var products = productService.FindAll();
+            }
+            @foreach (var product in products)
+            {
+                <div class="product">
+                    <img class="product-image" src="~/Photos/pugcorn-manuel-schmucker.jpg" alt="@product.Name">
+                    <div class="product-name">@product.Name</div>
+                    <div class="product-description">@product.Description</div>
+                    <div class="product-price">@product.Price</div>
+                </div>
+            }
+        </div>
     </article>
 
-<section>
+    <section>
         <div id="D">
             <li> <a data-testid="linkElement-0" href="/" target="_self" tabindex="0">STRONA GŁÓWNA</a></li>
             <li><a data-testid="linkElement-1" href="/home/Shoppings" target="_self" tabindex="0">ZAKUPY</a></li>
             <li><a data-testid="linkElement-2" href="/home/Contact" target="_self" tabindex="0">KONTAKT</a></li>
         </div>
-        
+
         <div id="B">
             <li><a class="box2" href="FAQ.html" target="_self">FAQ</a></li>
             <li><a class="box2" href="/home/Returns" target="_self">Wysyłka i zwroty</a></li>
@@ -61,15 +72,17 @@
             <li><p>+48 800-000-000</p></li>
             <li><a data-auto-recognition="true" href="mailto:info@pugcorn.com">info@pugcorn.com</a></li>
         </div>
-</section>
+    </section>
 
 </body>
 <footer>
 
-        <ul><p style="text-align:center; font-size:36px;"> Dołącz do naszego newslettera!</p>
+    <ul>
+        <p style="text-align:center; font-size:36px;"> Dołącz do naszego newslettera!</p>
         <input type="email" name="email" value="" placeholder="Wpisz swój email tutaj" required="" aria-required="true" pattern="" maxlength="250" aria-label="Wpisz swój email tutaj">
-        <button aria-disabled="false" data-testid="buttonElement">DOŁĄCZ</button></ul>
+        <button aria-disabled="false" data-testid="buttonElement">DOŁĄCZ</button>
+    </ul>
 
-        <p style="text-align:center; font: size 4px; position: center absolute; margin-left: auto; margin-right: auto;"> © 2022 by PUGCORN</p>
+    <p style="text-align:center; font: size 4px; position: center absolute; margin-left: auto; margin-right: auto;"> © 2022 by PUGCORN</p>
 
 </footer>
