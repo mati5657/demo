@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/Zakupy.css">
+
+    <title>
+        PUGCORN
+    </title>
+    <meta charset="UTF-8">
+    <style>
+
+
+        header {
+            padding: 1% 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgb(243, 235, 211);
+            color: #fff;
+        }
+
+        .logo {
+            font-size: 18px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+            .menu li {
+                margin: 0 10px;
+            }
+
+            .menu a {
+                text-decoration: none;
+                color: rgb(105, 138, 136);
+                font-size: 14px;
+            }
+
+        .cart {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .products {
+            width: 50%;
+            border: 1px solid black;
+        }
+
+        .summary {
+            width: 40%;
+            border: 1px solid black;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table, td, th {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        button {
+            border: none;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        body {
+            background-color: rgb(243, 235, 211);
+        }
+
+        button {
+            background-color: rgb(105, 138, 136);
+        }
+
+        footer {
+            padding: auto;
+            text-align: center;
+            position: relative;
+        }
+
+            footer ul {
+                padding: 3%;
+            }
+
+        #product {
+            width: 175px;
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <a href="#"><img src="Photos/pugcorn.jpg" alt="Logo"></a>
+        <nav>
+            <ul class="menu">
+                <li><a href="/">STRONA GŁÓWNA</a></li>
+                <li><a href="/home/shoppings">ZAKUPY</a></li>
+                <li><a href="/home/Contact">KONTAKT</a></li>
+                <li><a href="#">Zaloguj się</a></li>
+                <li><a href="/home/Cart">Koszyk</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="cart">
+        
+        <div class="products">
+            <h1>Produkty</h1>
+            
+            <table id="products">
+                <tr>
+                    <th>Nazwa</th>
+                    <th>Cena</th>
+                    <th>Akcja</th>
+                </tr>
+                
+                <tr>
+                    <td><img src="Photos/pugcorn.jpg" alt="po" id="product">Pugcorn 100G</td>
+                    <td>$10</td>
+                    <td><button type="button" onclick="addToCart(this)">Dodaj do koszyka</button></td>
+                </tr>
+                <tr>
+                    <td><img src="Photos/pugcorn.jpg" alt="po" id="product">Pugcorn 250G</td>
+                    <td>$20</td>
+                    <td><button type="button" onclick="addToCart(this)">Dodaj do koszyka</button></td>
+                </tr>
+                <tr>
+                    <td><img src="Photos/pugcorn.jpg" alt="po" id="product">Pugcorn 500G</td>
+                    <td>$40</td>
+                    <td><button type="button" onclick="addToCart(this)">Dodaj do koszyka</button></td>
+                </tr>
+                <tr>
+                    <td><img src="Photos/pugcorn.jpg" alt="po" id="product">Pugcorn 1KG</td>
+                    <td>$80</td>
+                    <td><button type="button" onclick="addToCart(this)">Dodaj do koszyka</button></td>
+                </tr>
+            </table>
+        </div>
+       
+        <div class="summary">
+            <h1>Podsumowanie</h1>
+            
+            <table id="cart">
+                <tr>
+                    <th>Nazwa</th>
+                    <th>Cena</th>
+                    <th>Akcja</th>
+                </tr>
+            </table>
+            
+            <p>Łącznie: <span id="total"></span></p>
+        </div>
+    </div>
+    <script>
+        
+        var cart = [];
+        
+        function addToCart(button) {
+            
+            var row = button.parentNode.parentNode;
+            var name = row.cells[0].innerHTML;
+            var price = row.cells[1].innerHTML;
+            
+            cart.push({ name: name, price: price });
+            
+            var table = document.getElementById("cart");
+            var newRow = table.insertRow();
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+            cell1.innerHTML = name;
+            cell2.innerHTML = price;
+            cell3.innerHTML = '<button type="button" onclick="removeFromCart(this)">Remove</button>';
+           
+            updateTotal();
+        }
+        
+        function removeFromCart(button) {
+            
+            var index = button.parentNode.parentNode.rowIndex - 1;
+            
+            cart.splice(index, 1);
+            
+            var table = document.getElementById("cart");
+            table.deleteRow(index + 1);
+            
+            updateTotal();
+        }
+       
+        function updateTotal() {
+            var total = 0;
+            for (var i = 0; i < cart.length; i++) {
+                total += parseInt(cart[i].price.slice(1));
+            }
+            document.getElementById("total").innerHTML = "$" + total;
+        }
+    </script>
+</body>
+<footer style="position: absolute; bottom: 0; width: 100%;">
+
+    <ul>
+        <p style="text-align:center; font-size:36px;"> Dołącz do naszego newslettera!</p>
+        <input type="email" name="email" value="" placeholder="Wpisz swój email tutaj" required="" aria-required="true" pattern="" maxlength="250" aria-label="Wpisz swój email tutaj">
+        <button aria-disabled="false" data-testid="buttonElement">DOŁĄCZ</button>
+    </ul>
+
+    <p style="text-align:center; font: size 4px; position: center absolute; margin-left: auto; margin-right: auto;"> © 2022 by PUGCORN</p>
+
+</footer>
+</html>

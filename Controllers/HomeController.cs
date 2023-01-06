@@ -42,6 +42,10 @@ namespace Pugcorn_v1.Controllers
         {
             return View();
         }
+        public IActionResult Cart()
+        {
+            return View();
+        }
 
     }
 }

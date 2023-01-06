@@ -7,10 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    
     <Content Remove="wwwroot\css\site.css" />
   </ItemGroup>
 
   <ItemGroup>
+    
     <None Include="wwwroot\css\Kontakt.css" />
     <None Include="wwwroot\css\site.css" />
     <None Include="wwwroot\Photos\.DS_Store" />
@@ -32,6 +34,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Identity.Web" Version="1.1.0" />
     <PackageReference Include="Microsoft.Identity.Web.UI" Version="1.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
   </ItemGroup>
 
   <ItemGroup>
