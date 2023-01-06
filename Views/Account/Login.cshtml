@@ -1,7 +1,14 @@
-﻿
-@{
-    ViewData["Title"] = "Login";
-}
+﻿@model Pugcorn_v1.Models.Login
 
 <h1>Login</h1>
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    @Html.ValidationSummary();
+    <span>Login: </span> @Html.TextBoxFor(x => x.Username)
+    <span>Password: </span> @Html.PasswordFor(x => x.Password)
+
+    <button type="submit">Submit</button>
+}
+
 

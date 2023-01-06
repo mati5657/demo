@@ -15,6 +15,21 @@ namespace Pugcorn_v1.Controllers
             return View();
         }
 
+
+
+        [HttpPost]
+        public IActionResult Login(Login userLoginData)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(userLoginData);
+            }
+
+            //logika rejestrujaca
+
+            return RedirectToAction("Index", "Home");
+        }
+
         [HttpGet]
         public IActionResult Register()
         {
@@ -34,6 +49,7 @@ namespace Pugcorn_v1.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [HttpGet]
         public IActionResult Logout()
         {
             return View();
