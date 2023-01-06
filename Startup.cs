@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
+using Pugcorn_v1.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,15 @@ namespace Pugcorn_v1
             {
                 builder.UseSqlServer("Data Source=DESKTOP-70TA2IQ;Initial Catalog=PugcornDb;Integrated Security=True") ;
             });
+
+            services.AddIdentityCore<UserModel>(options =>
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequiredLength = 5;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireLowercase = false;
+            }).AddEntityFrameworkStores<DbPugcornContext>();
 
             services.AddScoped<ProductService>();
         }
