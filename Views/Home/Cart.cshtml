@@ -112,7 +112,7 @@
     </style>
 </head>
 <body>
-    
+
     <header>
         <a class="header" href="/"> STRONA GŁÓWNA</a>
         <a class="header" href="/home/Shoppings"> ZAKUPY</a>
@@ -129,19 +129,19 @@
         }
         <a class="header" href="/home/Cart"> Koszyk</a>
     </header>
-    
+ 
     <div class="cart">
-        
+
         <div class="products">
             <h1>Produkty</h1>
-            
+
             <table id="products">
                 <tr>
                     <th>Nazwa</th>
                     <th>Cena</th>
                     <th>Akcja</th>
                 </tr>
-                
+
                 <tr>
                     <td><img src="Photos/pugcorn.jpg" alt="po" id="product">Pugcorn 100G</td>
                     <td>$10</td>
@@ -164,10 +164,10 @@
                 </tr>
             </table>
         </div>
-       
+
         <div class="summary">
             <h1>Podsumowanie</h1>
-            
+
             <table id="cart">
                 <tr>
                     <th>Nazwa</th>
@@ -175,22 +175,22 @@
                     <th>Akcja</th>
                 </tr>
             </table>
-            
+
             <p>Łącznie: <span id="total"></span></p>
         </div>
     </div>
     <script>
-        
+
         var cart = [];
-        
+
         function addToCart(button) {
-            
+
             var row = button.parentNode.parentNode;
             var name = row.cells[0].innerHTML;
             var price = row.cells[1].innerHTML;
-            
+
             cart.push({ name: name, price: price });
-            
+
             var table = document.getElementById("cart");
             var newRow = table.insertRow();
             var cell1 = newRow.insertCell(0);
@@ -199,22 +199,22 @@
             cell1.innerHTML = name;
             cell2.innerHTML = price;
             cell3.innerHTML = '<button type="button" onclick="removeFromCart(this)">Remove</button>';
-           
+
             updateTotal();
         }
-        
+
         function removeFromCart(button) {
-            
+
             var index = button.parentNode.parentNode.rowIndex - 1;
-            
+
             cart.splice(index, 1);
-            
+
             var table = document.getElementById("cart");
             table.deleteRow(index + 1);
-            
+
             updateTotal();
         }
-       
+
         function updateTotal() {
             var total = 0;
             for (var i = 0; i < cart.length; i++) {

@@ -14,10 +14,13 @@
         PUGCORN
     </title>
     <style>
-        .product {
+        .product-list {
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+
+        .product {
             width: 300px;
             margin: 10px;
             padding: 10px;
@@ -72,7 +75,7 @@
     </nav>
         <p style="text-align:center; font-size:48px;"> BESTSELLERY</p>
         <article>
-            <div>
+            <div class="product-list">
                 @{ 
                     @inject ProductService productService;
                     var products = productService.FindAll();
@@ -90,7 +93,7 @@
         </article>
 
     <div id="button">
-        <button aria-disabled="false" data-testid="buttonElement" href="Zakupy.html"> Zobacz wszystkie</button>
+        <button aria-disabled="false" data-testid="buttonElement" href="/home/Shoppings"> Zobacz wszystkie</button>
     </div>
 
 <section>
