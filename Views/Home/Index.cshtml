@@ -13,7 +13,42 @@
     <title>
         PUGCORN
     </title>
+    <style>
+        .product {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .product-description {
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        .product-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #f00;
+            margin: 10px 0;
+        }
+    </style>
 </head>
 <body>
     <div id="wrapper">
@@ -32,20 +67,21 @@
     </nav>
         <p style="text-align:center; font-size:48px;"> BESTSELLERY</p>
         <article>
-            @{
-                @inject ProductService productService;
-                var products = productService.FindAll();
-            }
-
-            <ul>
+            <div>
+                @{ 
+                    @inject ProductService productService;
+                    var products = productService.FindAll();
+                }
                 @foreach (var product in products)
                 {
-                    <li>@product.Name</li>
-                    <li>@product.Description</li>
-                    <li>@product.Price</li>
+                    <div class="product">
+                        <img class="product-image" src="~/Photos/pugcorn-manuel-schmucker.jpg" alt="@product.Name">
+                        <div class="product-name">@product.Name</div>
+                        <div class="product-description">@product.Description</div>
+                        <div class="product-price">@product.Price</div>
+                    </div>
                 }
-            </ul>
-
+            </div>
         </article>
 
     <div id="button">
