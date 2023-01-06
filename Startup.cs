@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -43,14 +44,16 @@ namespace Pugcorn_v1
                 builder.UseSqlServer("Data Source=DESKTOP-70TA2IQ;Initial Catalog=PugcornDb;Integrated Security=True") ;
             });
 
-            services.AddIdentityCore<UserModel>(options =>
+            services.AddIdentity<UserModel, IdentityRole>(options =>
             {
                 options.Password.RequireDigit = false;
-                options.Password.RequiredLength = 5;
+                options.Password.RequiredLength = 2;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequireLowercase = false;
-            }).AddEntityFrameworkStores<DbPugcornContext>();
+
+            })
+            .AddEntityFrameworkStores<DbPugcornContext>();
 
             services.AddScoped<ProductService>();
         }

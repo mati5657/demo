@@ -58,8 +58,12 @@
             <a class="header" href="/home/shoppings"> ZAKUPY</a>
             <a class="header" href="/home/Contact">KONTAKT</a>
 
+            @if (!User.Identity.IsAuthenticated) {
             <a class="header" href="/account/Login"> Zaloguj się</a>
             <a class="header" href="/account/Register"> Zarejestruj się</a>
+            } else {
+            <a class="header" href="/account/Logout"> Wyloguj się</a>
+            }
             <a class="header" href="home/Cart"> Koszyk</a>
         </header>
     </div>

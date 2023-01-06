@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Pugcorn_v1.Models;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,15 @@ namespace Pugcorn_v1.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly UserManager<UserModel> userMenager;
+        private readonly SignInManager<UserModel> signInManager;
+
+        public AccountController(UserManager<UserModel> userMenager, SignInManager<UserModel> signInManager)
+        {
+            this.userMenager = userMenager;
+            this.signInManager = signInManager;
+        }
+
         [HttpGet]
         public IActionResult Login()
         {
@@ -18,14 +28,14 @@ namespace Pugcorn_v1.Controllers
 
 
         [HttpPost]
-        public IActionResult Login(Login userLoginData)
+        public async Task<IActionResult> Login(Login userLoginData)
         {
             if (!ModelState.IsValid)
             {
                 return View(userLoginData);
             }
 
-            //logika rejestrujaca
+            await signInManager.PasswordSignInAsync(userLoginData.Username, userLoginData.Password, false, false);
 
             return RedirectToAction("Index", "Home");
         }
@@ -37,22 +47,32 @@ namespace Pugcorn_v1.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register(Register userRegisterData)
+        public async Task<IActionResult> Register(Register userRegisterData)
         {
             if (!ModelState.IsValid)
             {
                 return View(userRegisterData);
             }
 
-            //logika rejestrujaca
+            var newUser = new UserModel
+            {
+                Email = userRegisterData.Email,
+                UserName = userRegisterData.Username
+            };
+
+            await userMenager.CreateAsync(newUser, userRegisterData.Password);
+
+
 
             return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
-        public IActionResult Logout()
+        public async Task<IActionResult> Logout()
         {
-            return View();
+            await signInManager.SignOutAsync();
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

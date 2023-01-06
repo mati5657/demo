@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 
 namespace Pugcorn_v1.Controllers
 {
-    //[Authorize]
     public class HomeController : Controller
     {
         public IActionResult Index()
@@ -23,25 +22,31 @@ namespace Pugcorn_v1.Controllers
             return View();
         }
 
+        [Authorize]
         public IActionResult Returns()
         {
             return View();
         }
 
+        [Authorize]
         public IActionResult Shoppings()
         {
             return View();
         }
 
+        [Authorize]
         public IActionResult ShopRules()
         {
             return View();
         }
 
+        [Authorize]
         public IActionResult Contact()
         {
             return View();
         }
+
+        [Authorize]
         public IActionResult Cart()
         {
             return View();
