@@ -26,7 +26,6 @@ namespace Pugcorn_v1.Controllers
         }
 
 
-
         [HttpPost]
         public async Task<IActionResult> Login(Login userLoginData)
         {
@@ -35,10 +34,11 @@ namespace Pugcorn_v1.Controllers
                 return View(userLoginData);
             }
 
-            await signInManager.PasswordSignInAsync(userLoginData.Username, userLoginData.Password, false, false);
+            await LogIn(userLoginData);
 
             return RedirectToAction("Index", "Home");
         }
+
 
         [HttpGet]
         public IActionResult Register()
@@ -54,15 +54,7 @@ namespace Pugcorn_v1.Controllers
                 return View(userRegisterData);
             }
 
-            var newUser = new UserModel
-            {
-                Email = userRegisterData.Email,
-                UserName = userRegisterData.Username
-            };
-
-            await userMenager.CreateAsync(newUser, userRegisterData.Password);
-
-
+            await RegisterNewUser(userRegisterData);
 
             return RedirectToAction("Index", "Home");
         }
@@ -73,6 +65,22 @@ namespace Pugcorn_v1.Controllers
             await signInManager.SignOutAsync();
 
             return RedirectToAction("Index", "Home");
+        }
+
+        private async Task RegisterNewUser(Register userRegisterData)
+        {
+            var newUser = new UserModel
+            {
+                Email = userRegisterData.Email,
+                UserName = userRegisterData.Username
+            };
+
+            await userMenager.CreateAsync(newUser, userRegisterData.Password);
+        }
+
+        private async Task LogIn(Login userLoginData)
+        {
+            await signInManager.PasswordSignInAsync(userLoginData.Username, userLoginData.Password, false, false);
         }
     }
 }
