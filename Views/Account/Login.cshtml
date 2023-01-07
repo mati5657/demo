@@ -73,20 +73,25 @@
             <a class="header" href="/home/Cart"> Koszyk</a>
         </header>
     </div>
+    
     <div>
         <article>
             <div class="login-form">
                 @using (Html.BeginForm("Login", "Account", FormMethod.Post))
                 {
+                    <p style="text-align:center; font-size:20px">Zaloguj sie żeby korzystać z aplikacji</p>
+                    <br>
                     @Html.ValidationSummary();
                     <span>Login: </span> @Html.TextBoxFor(x => x.Username)
                     <br>
-                    <span>Password: </span> @Html.PasswordFor(x => x.Password)
+                    <span>Hasło: </span> @Html.PasswordFor(x => x.Password)
                     <br>
-                    <button type="submit">Submit</button>
+                    <button type="submit">Akceptuj</button>
                     <br>
+                    <p>Jesli nie masz konta</p><a href="/account/register" target="_self" tabindex="0">zarejestruj się</a>
                 }
             </div>
         </article>
     </div>
+
 </body>

@@ -8,58 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/Site.css">
+    <link rel="stylesheet" href="~/css/site.css"/>
 
     <title>
         PUGCORN
     </title>
-    <style>
-        .product-list {
-            flex-direction: column;
-            align-items: center;
-            display: flex;
-            margin:0px 30px;
-        }
-
-        .product {
-            width: 300px;
-            margin: 10px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            display:inline-block;
-        }
-
-        .product-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .product-name {
-            font-size: 18px;
-            font-weight: bold;
-            margin: 10px 0;
-        }
-
-        .product-description {
-            font-size: 14px;
-            margin: 10px 0;
-        }
-
-        .product-price {
-            font-size: 16px;
-            font-weight: bold;
-            color: #f00;
-            margin: 10px 0;
-        }
-
-        article {
-            box-sizing: border-box;
-            height:1200px;
-        }
-    </style>
-</head>
+ </head>
 <body>
     <div id="wrapper">
         <p> <img class="left" src="Photos/pugcorn.jpg" alt="logo"></p>
@@ -68,11 +22,14 @@
             <a class="header" href="/home/Shoppings"> ZAKUPY</a>
             <a class="header" href="/home/Contact">KONTAKT</a>
 
-            @if (!User.Identity.IsAuthenticated) {
-            <a class="header" href="/account/Login"> Zaloguj się</a>
-            <a class="header" href="/account/Register"> Zarejestruj się</a>
-            } else {
-            <a class="header" href="/account/Logout"> Wyloguj się</a>
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <a class="header" href="/account/Login"> Zaloguj się</a>
+                <a class="header" href="/account/Register"> Zarejestruj się</a>
+            }
+            else
+            {
+                <a class="header" href="/account/Logout"> Wyloguj się</a>
             }
             <a class="header" href="home/Cart"> Koszyk</a>
         </header>
@@ -80,59 +37,63 @@
     <nav>
         <img src="Photos/pugcorn-manuel-schmucker.jpg" alt="pugcorn-manuel-schmucker.jpg" style="width: 100%; height: 1600px; object-fit: cover; object-position: 50%;" fetchpriority="high">
     </nav>
-        <p style="text-align:center; font-size:48px;"> BESTSELLERY</p>
-        <article>
-            <div class="product-list">
-                @{ 
-                    @inject ProductService productService;
-                    var products = productService.FindAll();
-                }
-                @foreach (var product in products)
-                {
-                    <div class="product">
-                        <img class="product-image" src="~/Photos/pugcorn-manuel-schmucker.jpg" alt="@product.Name">
-                        <div class="product-name">@product.Name</div>
-                        <div class="product-description">@product.Description</div>
-                        <div class="product-price">@product.Price</div>
-                    </div>
-                }
-            </div>
-        </article>
+    <p style="text-align:center; font-size:48px;"> BESTSELLERY</p>
+    <article>
+        <div class="product-list">
+            @{
+                @inject ProductService productService;
+                var products = productService.FindAll();
+            }
+            @foreach (var product in products)
+            {
+                <div class="product">
+                    <img class="product-image" src="~/Photos/pugcorn-manuel-schmucker.jpg" alt="@product.Name">
+                    <div class="product-name">@product.Name</div>
+                    <div class="product-description">@product.Description</div>
+                    <div class="product-price">@product.Price</div>
+                </div>
+            }
+        </div>
+    </article>
 
     <div id="button">
         <input type="button" onclick="window.location.href='/home/Shoppings';" value="Zobacz wszystkie" />
     </div>
 
-<section>
+    <section>
         <div id="D">
             <li> <a data-testid="linkElement-0" href="/" target="_self" tabindex="0">STRONA GŁÓWNA</a></li>
-            <li><a data-testid="linkElement-1" href="/home/Shopiings" target="_self" tabindex="0">ZAKUPY</a></li>
-            <li><a data-testid="linkElement-2" href="home/contact" target="_self" tabindex="0">KONTAKT</a></li>
+            <li><a data-testid="linkElement-1" href="/home/Shoppings" target="_self" tabindex="0">ZAKUPY</a></li>
+            <li><a data-testid="linkElement-2" href="/home/Contact" target="_self" tabindex="0">KONTAKT</a></li>
+            <p> </p>
         </div>
-        
+
         <div id="B">
-            <li><a class="box2" href="FAQ.html" target="_self">FAQ</a></li>
+            <p>Wazne informacje</p>
             <li><a class="box2" href="/home/Returns" target="_self">Wysyłka i zwroty</a></li>
-            <li> <a class="box2" href="/home/ShopRules" target="_self">Regulamin sklepu</a></li>
+            <li><a class="box2" href="/home/ShopRules" target="_self">Regulamin sklepu</a></li>
+            <p> </p>
         </div>
 
         <div id="O">
+            <p> </p>
             <li><p>OBSŁUGA KLIENTA</p></li>
             <li><p>+48 800-000-000</p></li>
             <li><a data-auto-recognition="true" href="mailto:info@pugcorn.com">info@pugcorn.com</a></li>
         </div>
-</section>
-
-</body>
-<footer>
+    </section>
+    <footer>
 
         <p style="text-align:center; font-size:36px;">Dołącz do naszego newslettera!</p>
-<ul>
-    <input type="email" name="email" value="" placeholder="Wpisz swój email tutaj" required="" aria-required="true" pattern="" maxlength="250" aria-label="Wpisz swój email tutaj">
-    <button aria-disabled="false" data-testid="buttonElement">DOŁĄCZ</button>
-</ul>
+        <ul>
+            <input type="email" name="email" value="" placeholder="Wpisz swój email tutaj" required="" aria-required="true" pattern="" maxlength="250" aria-label="Wpisz swój email tutaj">
+            <button aria-disabled="false" data-testid="buttonElement">DOŁĄCZ</button>
+        </ul>
 
         <p style="text-align:center; font: size 4px; position: center absolute; margin-left: auto; margin-right: auto;"> © 2022 by PUGCORN</p>
 
-</footer>
+    </footer>
+
+</body>
+
 

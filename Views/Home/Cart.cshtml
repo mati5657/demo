@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Pugcorn_v1
+<!DOCTYPE html>
 <html lang="pl-PL">
 <head>
     <meta charset="UTF-8">
@@ -13,19 +14,36 @@
     </title>
     <meta charset="UTF-8">
     <style>
-           
+        #wrapper {
+            width: 100%;
+            height: 100%;
+            padding: 1% 10%;
+            background-color: hsl(45, 57%, 89%);
+            display: right inline-block;
+            text-align: center;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            margin: auto;
+        }
+
+
         .cart {
+            height:auto;
             display: flex;
             justify-content: space-between;
             padding: 10%;
         }
 
         .products {
+            height:auto;
             width: 50%;
             border: 1px solid black;
         }
 
         .summary {
+            height:auto;
             width: 40%;
             border: 1px solid black;
             padding: 20px;
@@ -42,6 +60,7 @@
         }
 
         table {
+            height: auto;
             width: 100%;
         }
 
@@ -62,16 +81,6 @@
         button {
             background-color: rgb(105, 138, 136);
         }
-
-        footer {
-            padding: auto;
-            text-align: center;
-            position: relative;
-        }
-
-            footer ul {
-                padding: 3%;
-            }
 
         #product {
             width: 175px;
@@ -102,6 +111,10 @@
     <div class="cart">
 
         <div class="products">
+            @{
+                @inject ProductService productService;
+                var products = productService.FindAll();
+            }
             <h1>Produkty</h1>
 
             <table id="products">
@@ -111,26 +124,14 @@
                     <th>Akcja</th>
                 </tr>
 
-                <tr>
-                    <td><img src="/Photos/pugcorn.jpg" alt="po" id="product">Pugcorn 100G</td>
-                    <td>$10</td>
-                    <td><button type="button" onclick="addToCart(this)">Dodaj do koszyka</button></td>
-                </tr>
-                <tr>
-                    <td><img src="/Photos/pugcorn.jpg" alt="po" id="product">Pugcorn 250G</td>
-                    <td>$20</td>
-                    <td><button type="button" onclick="addToCart(this)">Dodaj do koszyka</button></td>
-                </tr>
-                <tr>
-                    <td><img src="/Photos/pugcorn.jpg" alt="po" id="product">Pugcorn 500G</td>
-                    <td>$40</td>
-                    <td><button type="button" onclick="addToCart(this)">Dodaj do koszyka</button></td>
-                </tr>
-                <tr>
-                    <td><img src="/Photos/pugcorn.jpg" alt="po" id="product">Pugcorn 1KG</td>
-                    <td>$80</td>
-                    <td><button type="button" onclick="addToCart(this)">Dodaj do koszyka</button></td>
-                </tr>
+                @foreach (var product in products)
+                {
+                    <tr>
+                        <td><img src="~/Photos/pugcorn-manuel-schmucker.jpg" alt="po" id="product">@product.Name</td>
+                        <td>$ @product.Price</td>
+                        <td><button type="button" onclick="addToCart(this)">Dodaj do koszyka</button></td>
+                    </tr>
+                }
             </table>
         </div>
 
@@ -193,15 +194,4 @@
         }
     </script>
 </body>
-<footer style="position: absolute; bottom: 0; width: 100%;">
-
-    <ul>
-        <p style="text-align:center; font-size:36px;"> Dołącz do naszego newslettera!</p>
-        <input type="email" name="email" value="" placeholder="Wpisz swój email tutaj" required="" aria-required="true" pattern="" maxlength="250" aria-label="Wpisz swój email tutaj">
-        <button aria-disabled="false" data-testid="buttonElement">DOŁĄCZ</button>
-    </ul>
-
-    <p style="text-align:center; font: size 4px; position: center absolute; margin-left: auto; margin-right: auto;"> © 2022 by PUGCORN</p>
-
-</footer>
 </html>

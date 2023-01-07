@@ -73,11 +73,15 @@
             <a class="header" href="home/Cart"> Koszyk</a>
         </header>
     </div>
+    
     <div>
+        
         <article>
             <div class="register-form">
                 @using (Html.BeginForm("Register", "Account", FormMethod.Post))
                 {
+                    <p style="text-align:center; font-size:20px">Zarejestruj się</p>
+                    <br>
                     @Html.ValidationSummary();
                     <span>Login: </span>
                     @Html.TextBoxFor(x => x.Username)
@@ -86,7 +90,7 @@
                     <span>Password: </span>
                     @Html.PasswordFor(x => x.Password)
 
-                    <button type="submit">Submit</button>
+                    <button type="submit">Akceptuj</button>
                 }
             </div>
         </article>

@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/Wysylkaizwroty.css">
+    <link rel="stylesheet" href="~/css/site.css"/>
 
     <title>
         PUGCORN
@@ -15,22 +16,25 @@
 
 </head>
 <body>
-    <header>
-        <a class="header" href="/"> STRONA GŁÓWNA</a>
-        <a class="header" href="/home/Shopings"> ZAKUPY</a>
-        <a class="header" href="/home/Contact">KONTAKT</a>
+    <div id="wrapper">
+        <header>
+            <p> <img class="left" src="Photos/pugcorn.jpg" alt="logo"></p>
+            <a class="header" href="/"> STRONA GŁÓWNA</a>
+            <a class="header" href="/home/Shopings"> ZAKUPY</a>
+            <a class="header" href="/home/Contact">KONTAKT</a>
 
-        @if (!User.Identity.IsAuthenticated)
-        {
-            <a class="header" href="/account/Login"> Zaloguj się</a>
-            <a class="header" href="/account/Register"> Zarejestruj się</a>
-        }
-        else
-        {
-            <a class="header" href="/account/Logout"> Wyloguj się</a>
-        }
-        <a class="header" href="/home/Cart"> Koszyk</a>
-    </header>
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <a class="header" href="/account/Login"> Zaloguj się</a>
+                <a class="header" href="/account/Register"> Zarejestruj się</a>
+            }
+            else
+            {
+                <a class="header" href="/account/Logout"> Wyloguj się</a>
+            }
+            <a class="header" href="/home/Cart"> Koszyk</a>
+        </header>
+    </div>
         
     <article>
             <p style="text-align:center; font-size:64px;"> Skontaktuj się z nami</p>   
@@ -41,25 +45,28 @@
  
     </article>
 
-<section>
+    <section>
         <div id="D">
             <li> <a data-testid="linkElement-0" href="/" target="_self" tabindex="0">STRONA GŁÓWNA</a></li>
-            <li><a data-testid="linkElement-1" href="" target="_self" tabindex="0">ZAKUPY</a></li>
-            <li><a data-testid="linkElement-2" href="/contact" target="_self" tabindex="0">KONTAKT</a></li>
+            <li><a data-testid="linkElement-1" href="/home/Shoppings" target="_self" tabindex="0">ZAKUPY</a></li>
+            <li><a data-testid="linkElement-2" href="/home/Contact" target="_self" tabindex="0">KONTAKT</a></li>
+            <p> </p>
         </div>
-        
+
         <div id="B">
-            <li><a class="box2" href="FAQ.html" target="_self">FAQ</a></li>
-            <li><a class="box2" href="/returns" target="_self">Wysyłka i zwroty</a></li>
-            <li> <a class="box2" href="/ShopRules" target="_self">Regulamin sklepu</a></li>
+            <p>Wazne informacje</p>
+            <li><a class="box2" href="/home/Returns" target="_self">Wysyłka i zwroty</a></li>
+            <li><a class="box2" href="/home/ShopRules" target="_self">Regulamin sklepu</a></li>
+            <p> </p>
         </div>
 
         <div id="O">
+            <p> </p>
             <li><p>OBSŁUGA KLIENTA</p></li>
             <li><p>+48 800-000-000</p></li>
             <li><a data-auto-recognition="true" href="mailto:info@pugcorn.com">info@pugcorn.com</a></li>
         </div>
-</section>
+    </section>
 
 </body>
 <footer>

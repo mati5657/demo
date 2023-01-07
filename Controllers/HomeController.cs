@@ -28,6 +28,11 @@ namespace Pugcorn_v1.Controllers
         {
             return View();
         }
+      
+        public IActionResult Faq()
+        {
+            return View();
+        }
 
         [Authorize]
         public IActionResult ShopRules()
